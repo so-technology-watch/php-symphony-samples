@@ -1,0 +1,4 @@
+app:
+    resource: "@AppBundle/Resources/config/routing/routing_telosys.yml"
+    prefix: api/platform/
+ 

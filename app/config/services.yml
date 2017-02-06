@@ -1,0 +1,6 @@
+parameters:
+    
+imports:
+    - { resource: telosys_services.yml}
+
+services:
