@@ -20,6 +20,11 @@ class ElasticSearch
     protected $logger;
     
     /**
+    * @var Elasticsearch\Client
+    */
+    private static $client = null;    
+    
+    /**
      *
      * @param array $configuration application
      * @param LoggerInterface $logger
@@ -52,22 +57,29 @@ class ElasticSearch
      *
      */
     public function getInstance()
-    {        
-        $defaultHandler = ClientBuilder::defaultHandler(
-            ['max_handles' => $this->configuration['max_handles']]
-        );
-        
-        $client = ClientBuilder::create()
-                    ->setHosts($this->getHosts())
-                    ->setRetries($this->configuration['retries'])
-                    ->setHandler($defaultHandler)
-                    ->setLogger($this->logger)
-                    ->build();
-                    
-        $response = $client->indices()->getMapping();
-        
-        //print_r($response); die;
-
-        return $client;
+    {
+        if (is_null(self::$client)) {
+            $defaultHandler = ClientBuilder::defaultHandler(
+                ['max_handles' => $this->configuration['max_handles']]
+            );
+            
+            self::$client = ClientBuilder::create()
+                        ->setHosts($this->getHosts())
+                        ->setRetries($this->configuration['retries'])
+                        ->setHandler($defaultHandler)
+                        ->setLogger($this->logger)
+                        ->build();
+        }
+        return self::$client;
     }
+    
+    /**
+     *
+     * @return array
+     *
+     */
+    public function getAllMapping()
+    {
+        return $this->getInstance()->indices()->getMapping();
+    }    
 }

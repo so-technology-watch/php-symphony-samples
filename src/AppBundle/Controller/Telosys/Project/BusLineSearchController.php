@@ -21,4 +21,37 @@ class BusLineSearchController extends Controller
     {
         return $this->get('busline_search_service')->getBusLineByCode($code);
     }
+    
+    /**
+     *
+     * @Rest\Get("/projects/search/buslines/global/{content}")
+     * @Rest\View(statusCode=Response::HTTP_OK)
+     * 
+     */
+    public function getProjectsSearchBusLinesGlobalContentAction($content)
+    {
+        return $this->get('busline_search_service')->getBusLineMatchAll($content);
+    }
+    
+    /**
+     *
+     * @Rest\Get("/projects/search/buslines/global/{content}/alternative")
+     * @Rest\View(statusCode=Response::HTTP_OK)
+     * 
+     */
+    public function getProjectsSearchBusLinesGlobalContentAlternativection($content)
+    {
+        return $this->get('busline_search_service')->getBusLineQueryString($content);
+    }
+    
+    /**
+     *
+     * @Rest\Get("/projects/search/buslines")
+     * @Rest\View(statusCode=Response::HTTP_OK)
+     * 
+     */
+    public function getProjectsSearchBusLinesAction()
+    {
+        return $this->get('busline_search_service')->getBusLineAll();
+    }
 }

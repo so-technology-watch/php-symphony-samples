@@ -78,8 +78,31 @@ class BusLineSearchService
      */     
     public function getBusLineByCode($code)
     {
-        $response = $this->busLineQuery->getBusLineByCode($code);
-        return $response;
-        return $response['hits']['hits'];
+        return $this->busLineQuery->getBusLineByCode($code);
     }
+    
+    /**
+     *
+     * @param string $content
+     *
+     */     
+    public function getBusLineMatchAll($content)
+    {
+        return $this->busLineQuery->getBusLineMatchAll($content);
+    }
+    
+    /**
+     *
+     * @param string $content
+     *
+     */     
+    public function getBusLineQueryString($content)
+    {    
+        return $this->busLineQuery->getBusLineQueryString($content);
+    }
+      
+    public function getBusLineAll()
+    {
+        return $this->busLineQuery->getAll();
+    }    
 }
