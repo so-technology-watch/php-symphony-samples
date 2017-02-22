@@ -55,6 +55,8 @@ class LoadClientCommand extends ContainerAwareCommand
         $clientService      = $this->getContainer()->get('client_service');
         $jsonIterator       = $this->loadJsonData();
         
+        $output->writeln(sprintf("\n\n<info>Begin insert client%s.</info>", $asDryRunMessage));
+        
         foreach ($jsonIterator as $key => $clientData) {
             if(is_array($clientData)) {
                 $client = new Client();
