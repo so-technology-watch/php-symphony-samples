@@ -139,8 +139,8 @@ No need to detail them because known of any good developer of symfony.
 Telosys for symfony currently needs:
 
     Using geospatial data for customers.
-    Tests that mock api call.
-    Tests for core component.
+    Tests that mock api call (behat).
+    Tests for core components (phpunit).
 
 ## Troubleshooting
 
