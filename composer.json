@@ -2,7 +2,7 @@
     "name": "Telosys",
     "license": "MIT",
     "type": "project",
-    "keywords": ["telosys", "symfony 3", "elasticsearch", "php", "orm", "odm", "doctrine"],
+    "keywords": ["telosys", "symfony 3", "elasticsearch", "php", "orm", "odm", "doctrine", "search", "index"],
     "description": "Telosys for symfony is a template for REST API application",
     "homepage": "https://github.com/logorn/telosys",
     "authors": [
